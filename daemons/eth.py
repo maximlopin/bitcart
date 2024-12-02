@@ -370,6 +370,10 @@ class ETHDaemon(BlockProcessorDaemon):
         result["trace_enabled"] = self.trace_available
         return result
 
+    @rpc
+    def getaddresshistory(self, *args, **kwargs):
+        return { "testing":  "bitcart fork" }
+
     async def run_trace_queue(self):
         while self.running:
             block_number = await self.trace_queue.get()
